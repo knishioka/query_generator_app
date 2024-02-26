@@ -73,8 +73,7 @@ def main():
     st.write("You can use this tool to generate SQL queries for your database.")
 
     # Sidebar
-    st.sidebar.title("Table Info")
-    st.sidebar.text_area("プロンプト", key="table_info", value=DEFAULT_TABLE_INFO, height=500)
+    st.sidebar.text_area("Table Info", key="table_info", value=DEFAULT_TABLE_INFO, height=500)
 
     # Add chatbox to send request to ChatGPT by langchain
     user_input = st.text_input("Enter your message")
