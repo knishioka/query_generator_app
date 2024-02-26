@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "query-generator-app"
+version = "0.1.0"
+description = "A Streamlit and LangChain powered application for dynamically generating SQL queries. Designed to simplify database interactions through natural language inputs, this app leverages cutting-edge AI to translate user queries into executable SQL code. Perfect for analysts, developers, and anyone looking to interact with databases more intuitively."
+authors = ["Kenichiro Nishioka <nishioka.kenichiro@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.31.1"
+langchain = "^0.1.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
