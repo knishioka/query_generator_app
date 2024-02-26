@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed:
 First, clone the `query_generator_app` repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/yourusername/query_generator_app.git
+git clone git@github.com:knishioka/query_generator_app.git
 cd query_generator_app
 ``` 
 2. **Install dependencies** 
