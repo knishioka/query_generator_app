@@ -3,7 +3,7 @@ A Streamlit and LangChain powered application for dynamically generating SQL que
 
 ## Getting Started
 
-Welcome to `query_generator_app`, a Streamlit and LangChain powered tool designed to generate SQL queries from natural language inputs. Follow these steps to get the application up and running on your local machine.
+Follow these steps to get the application up and running on your local machine.
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -12,7 +12,7 @@ Before you begin, ensure you have the following installed:
 ### Installation 
 1. **Clone the repository** 
 
-First, clone the `query_generator_app` repository to your local machine using Git:
+Clone the `query_generator_app` repository to your local machine using Git:
 
 ```bash
 git clone git@github.com:knishioka/query_generator_app.git
@@ -20,14 +20,30 @@ cd query_generator_app
 ``` 
 2. **Install dependencies** 
 
-Use Poetry to install the required dependencies. If you don't have Poetry installed, refer to the [Poetry documentation]()  for installation instructions.
+Use Poetry to install the required dependencies:
 
 ```bash
 poetry install
 ```
+### Environment Variables
+
+To run the application smoothly and securely, you need to set up certain environment variables using a `.env` file.
+#### Setting Up Your `.env` File 
+1. In the root directory of the project, create a file named `.env`. 
+2. Add the necessary environment variables to the `.env` file. For example, to set up the OpenAI API key:
+
+```makefile
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+
+
+Replace `your_openai_api_key_here` with your actual OpenAI API key.
+
+**Note:**  The `.env` file is included in the `.gitignore` to prevent sensitive information from being committed to version control.
 ### Running the Application
 
-After installing the dependencies, you can start the application using Streamlit. Run the following command in the terminal:
+After setting up the environment variables, start the application using Streamlit:
 
 ```bash
 poetry run streamlit run app/main.py
@@ -35,9 +51,7 @@ poetry run streamlit run app/main.py
 
 
 
-This command launches the Streamlit server and opens the application in your default web browser. If the browser does not open automatically, you can access the app by navigating to the URL provided in the terminal output, typically `http://localhost:8501`.
-### Using the Application
+This command launches the Streamlit server and opens the application in your default web browser. If the browser does not open automatically, navigate to the URL provided in the terminal output, typically `http://localhost:8501`.
+## Using the Application
 
-With the application running, you can start generating SQL queries by entering natural language descriptions of your desired query into the input field. The app uses LangChain to interpret your input and generate the corresponding SQL query, which you can then review and use as needed.---
-
-Feel free to customize these instructions based on the specific requirements or additional features of your application.
+With the application running, enter natural language descriptions of your desired query into the input field. The app uses LangChain to interpret your input and generate the corresponding SQL query, which you can then review and use as needed.---
