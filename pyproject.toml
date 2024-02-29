@@ -1,3 +1,18 @@
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+exclude = '''
+/(
+    lib/submodules/
+)/
+'''
+
+[tool.isort]
+py_version = 310
+include_trailing_comma = true
+line_length = 120
+multi_line_output = 3
+
 [tool.poetry]
 name = "query-generator-app"
 version = "0.1.0"

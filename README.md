@@ -12,25 +12,33 @@ Before you begin, ensure you have the following installed:
 ### Installation 
 1. **Clone the repository** 
 
-Clone the `query_generator_app` repository to your local machine using Git:
+    Clone the `query_generator_app` repository to your local machine using Git:
 
-```bash
-git clone git@github.com:knishioka/query_generator_app.git
-cd query_generator_app
-``` 
-2. **Install dependencies** 
+    ```bash
+    git clone git@github.com:knishioka/query_generator_app.git
+    cd query_generator_app
+    ``` 
+1. **Install dependencies** 
+    Use Poetry to install the required dependencies:
 
-Use Poetry to install the required dependencies:
+    ```bash
+    poetry install
+    ```
 
-```bash
-poetry install
-```
+1. **Install pre-commit hooks**
+    To ensure your codebase remains clean and follows the defined coding standards, install pre-commit hooks by running:
+
+    ```bash
+    pre-commit install
+    ```
+    This command sets up pre-commit hooks that will automatically run specified tasks (like linting and tests) before each commit.
+
 ### Environment Variables
 
 To run the application smoothly and securely, you need to set up certain environment variables using a `.env` file.
 #### Setting Up Your `.env` File 
 1. In the root directory of the project, create a file named `.env`. 
-2. Add the necessary environment variables to the `.env` file. For example, to set up the OpenAI API key:
+1. Add the necessary environment variables to the `.env` file. For example, to set up the OpenAI API key:
 
 ```makefile
 OPENAI_API_KEY=your_openai_api_key_here
