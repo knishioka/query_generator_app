@@ -1,27 +1,8 @@
-import os
-
 import streamlit as st
-from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import (
-    ChatPromptTemplate,
-    SystemMessagePromptTemplate,
-    HumanMessagePromptTemplate,
-)
-
-
-SYSTEM_MESSAGE_PROMPT_TEMPLATE = """あなたはSQL クエリを書くエキスパートです.
-テーブル情報を参考に、分析用のクエリを書いてください."""
-
-HUMAN_MESSAGE_PROMPT_TEMPLATE = """
-テーブル情報:
-{table_info}
-
-分析:
-{analysis}
-
-クエリ:
-"""
+from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate
+from langchain_openai import ChatOpenAI
+from prompts import HUMAN_MESSAGE_PROMPT_TEMPLATE, SYSTEM_MESSAGE_PROMPT_TEMPLATE
 
 DEFAULT_TABLE_INFO = """
 ### 1. ユーザーテーブル (Users)
@@ -83,19 +64,13 @@ def main():
 
 
 def generate_sql_query(message):
-    system_message_prompt = SystemMessagePromptTemplate.from_template(
-        SYSTEM_MESSAGE_PROMPT_TEMPLATE
-    )
-    human_message_prompt = HumanMessagePromptTemplate.from_template(
-        HUMAN_MESSAGE_PROMPT_TEMPLATE
-    )
-    chat_prompt = ChatPromptTemplate.from_messages(
-        [system_message_prompt, human_message_prompt]
-    )
+    system_message_prompt = SystemMessagePromptTemplate.from_template(SYSTEM_MESSAGE_PROMPT_TEMPLATE)
+    human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_MESSAGE_PROMPT_TEMPLATE)
+    chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
     table_info = st.session_state["table_info"]
 
     model = ChatOpenAI(model="gpt-4", streaming=True)
-    chain = chat_prompt | model
+    chain = chat_prompt | model | StrOutputParser()
 
     return chain.invoke({"table_info": table_info, "analysis": message})
 
