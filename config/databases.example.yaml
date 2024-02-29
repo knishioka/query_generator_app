@@ -1,0 +1,139 @@
+databases:
+  - name: my_project_database
+    description: プロジェクトのメインデータベース
+    tables:
+      - name: users
+        description: ユーザー情報を格納
+        columns:
+          - name: user_id
+            type: INT
+            description: ユーザーの一意識別子
+          - name: username
+            type: VARCHAR(255)
+            description: ユーザー名
+          - name: email
+            type: VARCHAR(255)
+            description: ユーザーのメールアドレス
+          - name: password_hash
+            type: VARCHAR(255)
+            description: パスワードのハッシュ値
+          - name: created_at
+            type: TIMESTAMP
+            description: アカウント作成日時
+          - name: updated_at
+            type: TIMESTAMP
+            description: アカウント情報の最終更新日時
+
+      - name: products
+        description: 商品情報を格納
+        columns:
+          - name: product_id
+            type: INT
+            description: 商品の一意識別子
+          - name: name
+            type: VARCHAR(255)
+            description: 商品名
+          - name: description
+            type: TEXT
+            description: 商品説明
+          - name: price
+            type: DECIMAL(10, 2)
+            description: 価格
+          - name: stock_quantity
+            type: INT
+            description: 在庫数
+          - name: category_id
+            type: INT
+            description: 商品カテゴリのID
+          - name: created_at
+            type: TIMESTAMP
+            description: 商品登録日時
+          - name: updated_at
+            type: TIMESTAMP
+            description: 商品情報の最終更新日時
+
+      - name: categories
+        description: 商品カテゴリを格納
+        columns:
+          - name: category_id
+            type: INT
+            description: カテゴリの一意識別子
+          - name: name
+            type: VARCHAR(255)
+            description: カテゴリ名
+          - name: description
+            type: TEXT
+            description: カテゴリ説明
+          - name: parent_id
+            type: INT
+            description: 親カテゴリのID（サブカテゴリの場合）
+
+      - name: orders
+        description: 注文情報を格納
+        columns:
+          - name: order_id
+            type: INT
+            description: 注文の一意識別子
+          - name: user_id
+            type: INT
+            description: 注文したユーザーのID
+          - name: total_price
+            type: DECIMAL(10, 2)
+            description: 注文の合計金額
+          - name: status
+            type: VARCHAR(255)
+            description: 注文の状態（例 処理中、発送済み）
+          - name: created_at
+            type: TIMESTAMP
+            description: 注文日時
+          - name: updated_at
+            type: TIMESTAMP
+            description: 注文情報の最終更新日時
+
+      - name: order_details
+        description: 注文詳細を格納
+        columns:
+          - name: order_detail_id
+            type: INT
+            description: 注文詳細の一意識別子
+          - name: order_id
+            type: INT
+            description: 注文のID
+          - name: product_id
+            type: INT
+            description: 商品のID
+          - name: quantity
+            type: INT
+            description: 数量
+          - name: price
+            type: DECIMAL(10, 2)
+            description: 価格（時点）
+
+      - name: shopping_carts
+        description: ショッピングカート情報を格納
+        columns:
+          - name: cart_id
+            type: INT
+            description: カートの一意識別子
+          - name: user_id
+            type: INT
+            description: ユーザーのID
+          - name: product_id
+            type: INT
+            description: 商品のID
+          - name: quantity
+            type: INT
+            description: 数量
+          - name: added_at
+            type: TIMESTAMP
+            description: カートへの追加日時
+
+  - name: another_database
+    description: 別のプロジェクトやテスト用のデータベース
+    tables:
+      - name: example_table
+        description: 例示用テーブル
+        columns:
+          - name: example_column
+            type: VARCHAR(255)
+            description: 例示用の列

@@ -1,0 +1,53 @@
+databases:
+  - name: my_project_database
+    description: プロジェクトのメインデータベース
+    tables:
+      - name: users
+        description: ユーザー情報を格納
+        columns:
+          - name: user_id
+            type: INT
+            description: ユーザーの一意識別子
+          - name: username
+            type: VARCHAR(255)
+            description: ユーザー名
+          - name: email
+            type: VARCHAR(255)
+            description: ユーザーのメールアドレス
+          - name: password_hash
+            type: VARCHAR(255)
+            description: パスワードのハッシュ値
+          - name: created_at
+            type: TIMESTAMP
+            description: アカウント作成日時
+          - name: updated_at
+            type: TIMESTAMP
+            description: アカウント情報の最終更新日時
+
+      - name: products
+        description: 商品情報を格納
+        columns:
+          - name: product_id
+            type: INT
+            description: 商品の一意識別子
+          - name: name
+            type: VARCHAR(255)
+            description: 商品名
+          - name: description
+            type: TEXT
+            description: 商品説明
+          - name: price
+            type: DECIMAL(10, 2)
+            description: 価格
+          - name: stock_quantity
+            type: INT
+            description: 在庫数
+          - name: category_id
+            type: INT
+            description: 商品カテゴリのID
+          - name: created_at
+            type: TIMESTAMP
+            description: 商品登録日時
+          - name: updated_at
+            type: TIMESTAMP
+            description: 商品情報の最終更新日時
