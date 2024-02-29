@@ -40,13 +40,22 @@ To run the application smoothly and securely, you need to set up certain environ
 1. In the root directory of the project, create a file named `.env`. 
 1. Add the necessary environment variables to the `.env` file. For example, to set up the OpenAI API key:
 
-```makefile
+```
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-
-
 Replace `your_openai_api_key_here` with your actual OpenAI API key.
+
+Additionally, to enable LangSmith tracing for enhanced debugging and insights, include the following settings:
+
+```
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_ENDPOINT="https://api.smith.langchain.com"
+LANGCHAIN_API_KEY="your_langchain_api_key"
+LANGCHAIN_PROJECT="your_project"
+```
+
+Replace `your_langchain_api_key` with your actual LangChain API key and `your_project` with your project name.
 
 **Note:**  The `.env` file is included in the `.gitignore` to prevent sensitive information from being committed to version control.
 ### Running the Application
