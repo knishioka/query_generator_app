@@ -1,9 +1,9 @@
 import pytest  # noqa: F401
 
-from main import yaml_to_formatted_string
+from main import constraints_yaml_to_formatted_string, databases_yaml_to_formatted_string
 
 
-def test_yaml_to_formatted_string():
+def test_databases_yaml_to_formatted_string():
     yaml_file = "tests/test_databases.yaml"
     expected_result = """データベース: my_project_database
 テーブル: users
@@ -26,6 +26,15 @@ def test_yaml_to_formatted_string():
 - created_at: 商品登録日時
 - updated_at: 商品情報の最終更新日時"""
     print(expected_result)
-    result = yaml_to_formatted_string(yaml_file)
+    result = databases_yaml_to_formatted_string(yaml_file)
+    print(result)
+    assert result == expected_result
+
+
+def test_constraints_yaml_to_formatted_string():
+    yaml_file = "tests/test_query_constraints.yaml"
+    expected_result = """- user_id: クエリにuser_idが含まれる場合、GROUP BY user_idで集計する必要がある
+- order_id: クエリにorder_idが含まれる場合、GROUP BY order_idで集計する必要がある"""
+    result = constraints_yaml_to_formatted_string(yaml_file)
     print(result)
     assert result == expected_result

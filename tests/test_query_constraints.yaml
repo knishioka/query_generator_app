@@ -1,0 +1,6 @@
+query_constraints:
+  - column: user_id
+    constraint: "クエリにuser_idが含まれる場合、GROUP BY user_idで集計する必要がある"
+    
+  - column: order_id
+    constraint: "クエリにorder_idが含まれる場合、GROUP BY order_idで集計する必要がある"
