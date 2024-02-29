@@ -21,12 +21,13 @@ def main():
     st.sidebar.text_area("Table Info", key="table_info", value=table_info, height=500)
     st.sidebar.text_area("Constraints", key="constraints", value=constraints, height=500)
 
-    # Add chatbox to send request to ChatGPT by langchain
-    user_input = st.text_input("Enter your message")
-
-    if st.button("Send"):
-        response = generate_sql_query(user_input)
-        st.markdown(response)
+    st.chat_message("assistant").write("What kind of query would you like to generate?")
+    user_msg = st.chat_input("ここにメッセージを入力")
+    if user_msg:
+        st.chat_message("user").write(user_msg)
+        with st.spinner("回答を生成中..."):
+            response = generate_sql_query(user_msg)
+            st.chat_message("assistant").markdown(response)
 
 
 def databases_yaml_to_formatted_string(yaml_file):
@@ -103,13 +104,6 @@ def generate_sql_query(message):
     return chain.invoke(
         {"table_info": table_info, "constraints": constraints, "question": message, "dialect": "athena"}
     )
-
-
-def send_request_to_chatgpt():
-    # Code to send request to ChatGPT by langchain and get response
-    # Replace this with your actual implementation
-    response = "This is the response from ChatGPT"
-    return response
 
 
 if __name__ == "__main__":
