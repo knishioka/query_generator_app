@@ -62,4 +62,4 @@ poetry run streamlit run app/main.py
 This command launches the Streamlit server and opens the application in your default web browser. If the browser does not open automatically, navigate to the URL provided in the terminal output, typically `http://localhost:8501`.
 ## Using the Application
 
-With the application running, enter natural language descriptions of your desired query into the input field. The app uses LangChain to interpret your input and generate the corresponding SQL query, which you can then review and use as needed.---
+With the application running, enter natural language descriptions of your desired query into the input field. The app uses LangChain to interpret your input and generate the corresponding SQL query, which you can then review and use as needed.
