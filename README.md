@@ -33,6 +33,14 @@ Before you begin, ensure you have the following installed:
     ```
     This command sets up pre-commit hooks that will automatically run specified tasks (like linting and tests) before each commit.
 
+### Configuration Files
+
+To customize the application for your specific database setup and query constraints, you need to configure the following files in the `config` directory: 
+- **databases.yaml** : Contains schema information for the databases and tables you plan to analyze. This file is critical for the application to understand how to interact with your database structure. 
+- **query_constraints.yaml** : Defines constraints for writing queries, such as limiting the tables or fields that can be queried, to ensure queries are both efficient and secure.
+
+**Note:**  For security and customization reasons, both `config/databases.yaml` and `config/query_constraints.yaml` are included in the `.gitignore` file and should not be committed to version control. Instead, sample files named `config/database.example.yaml` and `config/query_constraints.example.yaml` are provided. Copy these example files to create your own `databases.yaml` and `query_constraints.yaml` files, and then customize them according to your environment and requirements.
+
 ### Environment Variables
 
 To run the application smoothly and securely, you need to set up certain environment variables using a `.env` file.
@@ -65,8 +73,6 @@ After setting up the environment variables, start the application using Streamli
 ```bash
 poetry run streamlit run main.py
 ```
-
-
 
 This command launches the Streamlit server and opens the application in your default web browser. If the browser does not open automatically, navigate to the URL provided in the terminal output, typically `http://localhost:8501`.
 ## Using the Application

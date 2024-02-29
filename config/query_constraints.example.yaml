@@ -1,0 +1,15 @@
+query_constraints:
+  - column: user_id
+    constraint: "クエリにuser_idが含まれる場合、GROUP BY user_idで集計する必要がある"
+    
+  - column: order_id
+    constraint: "クエリにorder_idが含まれる場合、GROUP BY order_idで集計する必要がある"
+    
+  - column: product_id
+    constraint: "クエリにproduct_idが含まれる場合、GROUP BY product_idで集計する必要がある"
+    
+  - column: price
+    constraint: "priceを含むクエリでは、SUM(price)を計算する"
+    
+  - column: created_at
+    constraint: "created_atを基にした時間範囲の指定が必要"

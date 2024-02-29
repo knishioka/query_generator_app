@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 config/databases.yaml
+config/query_constraints.yaml
