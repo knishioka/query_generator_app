@@ -1,9 +1,9 @@
 import pytest  # noqa: F401
 
-from app.main import yaml_to_formatted_string
+from main import yaml_to_formatted_string
 
 
-def test_yaml_to_formatted_string():  # FIXME: ModuleNotFoundError: No module named 'prompts'
+def test_yaml_to_formatted_string():
     yaml_file = "tests/test_databases.yaml"
     expected_result = """データベース: my_project_database
 テーブル: users

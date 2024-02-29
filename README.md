@@ -63,7 +63,7 @@ Replace `your_langchain_api_key` with your actual LangChain API key and `your_pr
 After setting up the environment variables, start the application using Streamlit:
 
 ```bash
-poetry run streamlit run app/main.py
+poetry run streamlit run main.py
 ```
 
 
